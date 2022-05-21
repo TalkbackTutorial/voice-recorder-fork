@@ -60,13 +60,13 @@
 
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/SplashTheme" />
 
         <activity
             android:name=".activities.MainActivity"
             android:configChanges="orientation|screenSize"
-            android:exported="false"
+            android:exported="true"
             android:launchMode="singleTask" />
 
         <activity

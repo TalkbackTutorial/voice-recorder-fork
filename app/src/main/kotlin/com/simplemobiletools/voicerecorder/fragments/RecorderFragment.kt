@@ -1,5 +1,6 @@
 package com.simplemobiletools.voicerecorder.fragments
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -114,6 +115,11 @@ class RecorderFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     private fun stopRecording() {
         Intent(context, RecorderService::class.java).apply {
             context.stopService(this)
+            // post completion: launch
+            val intent = Intent()
+            intent.putExtra("TBT_SVR_ACTION", "SVR_TASK_FINISH_RECORDING")
+            intent.component = ComponentName("com.github.talkbacktutorial", "com.github.talkbacktutorial.activities.modules.calculatorapp.CalculatorAppActivity")
+            context.startActivity(intent)
         }
     }
 

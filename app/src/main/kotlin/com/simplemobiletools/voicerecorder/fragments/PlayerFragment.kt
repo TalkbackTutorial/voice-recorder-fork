@@ -1,7 +1,9 @@
 package com.simplemobiletools.voicerecorder.fragments
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.media.MediaMetadataRetriever
@@ -150,10 +152,16 @@ class PlayerFragment(context: Context, attributeSet: AttributeSet) : MyViewPager
         val adapter = getRecordingsAdapter()
         if (adapter == null) {
             RecordingsAdapter(context as SimpleActivity, recordings, this, recordings_list) {
-                playRecording(it as Recording, true)
-                if (playedRecordingIDs.isEmpty() || playedRecordingIDs.peek() != it.id) {
-                    playedRecordingIDs.push(it.id)
-                }
+                // callback to tutorial
+                val intent = Intent()
+                intent.putExtra("TBT_SVR_ACTION", "SVR_TASK_PLAY_RECORDING")
+                intent.component = ComponentName("com.github.talkbacktutorial", "com.github.talkbacktutorial.activities.modules.calculatorapp.CalculatorAppActivity")
+                context.startActivity(intent)
+
+//                playRecording(it as Recording, true)
+//                if (playedRecordingIDs.isEmpty() || playedRecordingIDs.peek() != it.id) {
+//                    playedRecordingIDs.push(it.id)
+//                }
             }.apply {
                 recordings_list.adapter = this
             }
