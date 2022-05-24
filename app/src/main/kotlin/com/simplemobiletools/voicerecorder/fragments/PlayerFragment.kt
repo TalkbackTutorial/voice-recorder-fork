@@ -155,7 +155,7 @@ class PlayerFragment(context: Context, attributeSet: AttributeSet) : MyViewPager
                 // callback to tutorial
                 val intent = Intent()
                 intent.putExtra("TBT_SVR_ACTION", "SVR_TASK_PLAY_RECORDING")
-                intent.component = ComponentName("com.github.talkbacktutorial", "com.github.talkbacktutorial.activities.modules.calculatorapp.CalculatorAppActivity")
+                intent.component = ComponentName("com.github.talkbacktutorial", "com.github.talkbacktutorial.activities.modules.voicerecorderapp.VoiceRecorderAppActivity")
                 context.startActivity(intent)
 
 //                playRecording(it as Recording, true)

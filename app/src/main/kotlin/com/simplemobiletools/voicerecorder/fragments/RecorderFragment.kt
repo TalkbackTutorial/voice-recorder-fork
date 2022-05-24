@@ -118,7 +118,7 @@ class RecorderFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             // post completion: launch
             val intent = Intent()
             intent.putExtra("TBT_SVR_ACTION", "SVR_TASK_FINISH_RECORDING")
-            intent.component = ComponentName("com.github.talkbacktutorial", "com.github.talkbacktutorial.activities.modules.calculatorapp.CalculatorAppActivity")
+            intent.component = ComponentName("com.github.talkbacktutorial", "com.github.talkbacktutorial.activities.modules.voicerecorderapp.VoiceRecorderAppActivity")
             context.startActivity(intent)
         }
     }
