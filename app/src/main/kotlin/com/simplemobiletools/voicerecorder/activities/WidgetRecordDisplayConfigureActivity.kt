@@ -7,10 +7,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.SeekBar
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
-import com.simplemobiletools.commons.extensions.adjustAlpha
-import com.simplemobiletools.commons.extensions.applyColorFilter
-import com.simplemobiletools.commons.extensions.setFillWithStroke
-import com.simplemobiletools.commons.helpers.DEFAULT_WIDGET_BG_COLOR
+import com.simplemobiletools.commons.dialogs.WidgetLockedDialog
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_CUSTOMIZING_COLORS
 import com.simplemobiletools.voicerecorder.R
 import com.simplemobiletools.voicerecorder.extensions.config
@@ -22,6 +20,7 @@ class WidgetRecordDisplayConfigureActivity : SimpleActivity() {
     private var mWidgetId = 0
     private var mWidgetColor = 0
     private var mWidgetColorWithoutTransparency = 0
+    private var mWidgetLockedDialog: WidgetLockedDialog? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
@@ -39,15 +38,31 @@ class WidgetRecordDisplayConfigureActivity : SimpleActivity() {
 
         config_save.setOnClickListener { saveConfig() }
         config_widget_color.setOnClickListener { pickBackgroundColor() }
+
+        val primaryColor = getProperPrimaryColor()
+        config_widget_seekbar.setColors(getProperTextColor(), primaryColor, primaryColor)
+
+        if (!isCustomizingColors && !isOrWasThankYouInstalled()) {
+            mWidgetLockedDialog = WidgetLockedDialog(this) {
+                if (!isOrWasThankYouInstalled()) {
+                    finish()
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        window.decorView.setBackgroundColor(0)
+
+        if (mWidgetLockedDialog != null && isOrWasThankYouInstalled()) {
+            mWidgetLockedDialog?.dismissDialog()
+        }
     }
 
     private fun initVariables() {
-        mWidgetColor = resources.getColor(R.color.color_primary)
-        mWidgetAlpha = if (mWidgetColor == DEFAULT_WIDGET_BG_COLOR) {
-            1f
-        } else {
-            Color.alpha(mWidgetColor) / 255.toFloat()
-        }
+        mWidgetColor = config.widgetBgColor
+        mWidgetAlpha = Color.alpha(mWidgetColor) / 255.toFloat()
 
         mWidgetColorWithoutTransparency = Color.rgb(Color.red(mWidgetColor), Color.green(mWidgetColor), Color.blue(mWidgetColor))
         config_widget_seekbar.setOnSeekBarChangeListener(seekbarChangeListener)
@@ -84,7 +99,7 @@ class WidgetRecordDisplayConfigureActivity : SimpleActivity() {
 
     private fun updateColors() {
         mWidgetColor = mWidgetColorWithoutTransparency.adjustAlpha(mWidgetAlpha)
-        config_widget_color.setFillWithStroke(mWidgetColor, Color.BLACK)
+        config_widget_color.setFillWithStroke(mWidgetColor, mWidgetColor)
         config_image.background.mutate().applyColorFilter(mWidgetColor)
     }
 
