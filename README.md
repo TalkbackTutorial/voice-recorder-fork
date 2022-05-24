@@ -1,4 +1,9 @@
-# Simple Voice Recorder
+# Simple Voice Recorder (FORK FOR TALKBACK TUTORIAL)
+
+This is a fork purely for the [TalkbackTutorial organisation](https://github.com/TalkbackTutorial). It is currently serving as a proof-of-concept.
+
+## Original README
+
 <img alt="Logo" src="fastlane/metadata/android/en-US/images/icon.png" width="120" />
 
 Ever wished you remember what the other person said? Or the task they gave you at a meeting? Wish no more. With this simple recorder you can record any audio really quickly.
