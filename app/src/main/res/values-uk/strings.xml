@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Voice Recorder</string>
+    <string name="app_name">Простий Диктофон</string>
     <string name="app_launcher_name">Диктофон</string>
     <string name="recording_saved_successfully">Запис успішно збережено</string>
     <string name="recording">Запис</string>
@@ -9,6 +9,8 @@
     <string name="no_recordings_in_folder_found">В обраній теці, не знайдено
 \nжодного запису</string>
     <string name="paused">Пауза</string>
+    <string name="recorder">Recorder</string>
+    <string name="player">Player</string>
     <!-- Confirmation dialog -->
     <string name="delete_recordings_confirmation">Видалити %s\?</string>
     <!-- Are you sure you want to delete 5 recordings? -->
@@ -16,6 +18,7 @@
         <item quantity="one">%d запис</item>
         <item quantity="few">%d записа</item>
         <item quantity="many">%d записів</item>
+        <item quantity="other">%d записів</item>
     </plurals>
     <!-- Settings -->
     <string name="try_hiding_notification">Намагатися приховати сповіщення про запис</string>
@@ -23,15 +26,8 @@
     <string name="bitrate">Bitrate</string>
     <string name="record_after_launch">Автоматично розпочинати запис після запуску програми</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Чи можна приховати значок сповіщення під час запису?</string>
-    <string name="faq_1_text">Ну, це залежить від обставин. Доки ви використовуєте свій пристрій, повністю приховати сповіщення з таких додатків неможливо.
-        Якщо ви встановите відповідний пункт в настройках, додаток зробить все можливе, щоб приховати сповіщення. Також можна приховати його на екрані блокування, якщо відключити відображення конфіденційних сповіщень в налаштуваннях пристрою.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Voice Recorder - простий запис звуку</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Легкий спосіб запису всякої дискусії або звуку без реклами і доступу в інтернет</string>
-    <string name="app_long_description"> Згадайте, що сказала інша людина й яке завдання вам дали після зустрічі. Простий диктофон легко доступний без химерних функцій, реклами чи непотрібних дозволів. Поточна гучність звуку та приємна візуалізація відображаються в охайному інтерфейсі. Корисний програвач дає змогу швидко прослуховувати записи, перейменовувати або видаляти їх. За промовчанням додаток поставляється з матеріальним дизайном і темною темою, забезпечує чудовий користувацький досвід для простого використання. Відсутність доступу до Інтернету надає більше приватності, безпеки та стабільності, порівняно з іншими додатками. Не буде показувати рекламу; потрібні лише найнеобхідніші дозволи. Програмний код повністю відкритий, забезпечує настроювальні кольори оформлення. <b>Ознайомтеся з повним набором додатків Simple Tools тут:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <string name="faq_1_title">Чи можна приховати значок сповіщення під час запису\?</string>
+    <string name="faq_1_text">Ну, це залежить від обставин. Доки ви використовуєте свій пристрій, повністю приховати сповіщення з таких додатків неможливо. Якщо ви встановите відповідний пункт в настройках, додаток зробить все можливе, щоб приховати сповіщення. Також можна приховати його на екрані блокування, якщо відключити відображення конфіденційних сповіщень в налаштуваннях пристрою.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

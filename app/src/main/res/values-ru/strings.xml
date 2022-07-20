@@ -9,6 +9,8 @@
     <string name="no_recordings_in_folder_found">В выбранной папке не найдено
 \nни одной записи</string>
     <string name="paused">Пауза</string>
+    <string name="recorder">Recorder</string>
+    <string name="player">Проигрыватель</string>
     <!-- Confirmation dialog -->
     <string name="delete_recordings_confirmation">Удалить %s\?</string>
     <!-- Are you sure you want to delete 5 recordings? -->
@@ -16,6 +18,7 @@
         <item quantity="one">%d запись</item>
         <item quantity="few">%d записи</item>
         <item quantity="many">%d записей</item>
+        <item quantity="other">%d записей</item>
     </plurals>
     <!-- Settings -->
     <string name="try_hiding_notification">Пытаться скрыть уведомление о записи</string>
@@ -23,21 +26,8 @@
     <string name="bitrate">Битрейт</string>
     <string name="record_after_launch">Автоматически начинать запись при запуске приложения</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Можно ли скрыть значок уведомления во время записи?</string>
-    <string name="faq_1_text">Ну, это зависит от обстоятельств. Пока вы используете своё устройство, полностью скрыть уведомления о таких приложениях уже невозможно.
-        Если вы установите соответствующий пункт в настройках, приложение сделает всё возможное, чтобы скрыть его. Также можно скрыть уведомление на экране блокировки, если отключить отображение конфиденциальных уведомлений в настройках устройства.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Voice Recorder — простая запись звука</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Лёгкий способ записи любой дискуссии или звука без рекламы и доступа в интернет</string>
-    <string name="app_long_description">Запомните, что сказал собеседник или какое задание вам дали после встречи.
-\nПростой диктофон без ненужных функций, рекламы и непонятных разрешений.
-\nТекущая громкость звука и приятная визуализация отображаются в понятном интерфейсе.
-\nПолезный проигрыватель позволяет быстро прослушивать записи, переименовывать или удалять их.
-\nЕсть возможность настраивать цвета интерфейса.
-\nСвободное программное обеспечение, лицензированное GPLv3+.
-\n <b>Ознакомьтесь с полным набором инструментов серии Simple здесь:</b> https://www.simplemobiletools.com</string>
+    <string name="faq_1_title">Можно ли скрыть значок уведомления во время записи\?</string>
+    <string name="faq_1_text">Ну, это зависит от обстоятельств. Пока вы используете своё устройство, полностью скрыть уведомления о таких приложениях уже невозможно. Если вы установите соответствующий пункт в настройках, приложение сделает всё возможное, чтобы скрыть его. Также можно скрыть уведомление на экране блокировки, если отключить отображение конфиденциальных уведомлений в настройках устройства.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

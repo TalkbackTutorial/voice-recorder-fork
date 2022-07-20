@@ -4,10 +4,13 @@
     <string name="app_launcher_name">Helisalvestaja</string>
     <string name="recording_saved_successfully">Salvestamine õnnestus</string>
     <string name="recording">Salvestus</string>
-    <string name="no_recordings_found">Ühtegi selle rakenduse poolt tehtud\nsalvestust ei leidu</string>
+    <string name="no_recordings_found">Ühtegi selle rakenduse poolt tehtud
+\nsalvestust ei leidu</string>
     <string name="no_recordings_in_folder_found">Valitud kaustas ei leidu
 \nühtegi salvestust</string>
     <string name="paused">Peatatud</string>
+    <string name="recorder">Recorder</string>
+    <string name="player">Player</string>
     <!-- Confirmation dialog -->
     <!-- Are you sure you want to delete 5 recordings? -->
     <string name="delete_recordings_confirmation">Kas kustutame %s\?</string>
@@ -23,12 +26,6 @@
     <!-- FAQ -->
     <string name="faq_1_title">Kas salvestamise ajal saan peita vastavat teavitust\?</string>
     <string name="faq_1_text">Eks see nüüd sõltub… Selliste rakenduste täiesti peitmine kasutamise ajal ei ole enam võimalik. Seadistustest vastava sätte valimisel annab see rakendus endast parima, et teavitusi peita. Lisaks saad üldistest seadistustest keelata privaatsete teavituste näitamise lukustuskuval ning siis ka seda rakendust pole seal näha.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Lihtne helisalvestaja - salvesta helisid hõlpsalt</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Lihtne lahendus vestluste ja helide salvestamiseks reklaamide ja võrguühenduseta</string>
-    <string name="app_long_description"> Jäta meelde, mida vestluse teine osapool ütles ja mis ülesandeid sulle koosolekul jagati. Lihtne helisalvestaja on hõlpsalt kasutatav ning rakenduses pole reklaame ega asjatute õiguste eeldamist. Helivaljuse juhtimine ja salvestuse visualiseerimine lihtsas kasutajaliideses. Mugavas meediamängijas saad salvestusi kuulata, ümbernimetada või kustutada. Suurepärase kasutajakogemuse jaoks kasutab rakendus vaikimisi Material Design disainikeelt ning tumedat teemat. Võrreldes mõnede teiste sarnaste rakendustega ei vaja meie oma internetiühendust ning seega on ka turvalisem, privaatsem ja stabiilsem. Meie rakenduses pole reklaame ega asjatute õiguste eeldamist. Rakenduse lähtekood on avalikult saadaval ning välimust saad alati kohendada. <b>Teavet Lihtsate tarvikute rakendustest leiad siit:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -15,8 +15,8 @@ android {
         applicationId 'com.simplemobiletools.voicerecorder.tbtutorialfork'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 22
-        versionName "5.7.1"
+        versionCode 25
+        versionName "5.8.2"
         setProperty("archivesBaseName", "voice-recorder")
         vectorDrawables.useSupportLibrary = true
     }
@@ -49,6 +49,7 @@ android {
     productFlavors {
         core {}
         fdroid {}
+        prepaid {}
     }
 
     sourceSets {
@@ -62,10 +63,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:e0671f01ce'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:fbcf12e609'
     implementation 'org.greenrobot:eventbus:3.3.1'
     implementation 'com.github.Armen101:AudioRecordView:1.0.4'
     implementation 'androidx.documentfile:documentfile:1.0.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.github.naman14:TAndroidLame:1.1'
+    implementation 'me.grantland:autofittextview:0.2.1'
 }

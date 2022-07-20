@@ -2,16 +2,17 @@ package com.simplemobiletools.voicerecorder.adapters
 
 import android.provider.MediaStore
 import android.provider.MediaStore.Audio.Media
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.core.net.toUri
 import com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isQPlus
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.voicerecorder.BuildConfig
 import com.simplemobiletools.voicerecorder.R
@@ -22,7 +23,6 @@ import com.simplemobiletools.voicerecorder.interfaces.RefreshRecordingsListener
 import com.simplemobiletools.voicerecorder.models.Recording
 import kotlinx.android.synthetic.main.item_recording.view.*
 import java.io.File
-import java.util.*
 
 class RecordingsAdapter(
     activity: SimpleActivity,
@@ -57,6 +57,7 @@ class RecordingsAdapter(
             R.id.cab_rename -> renameRecording()
             R.id.cab_share -> shareRecordings()
             R.id.cab_delete -> askConfirmDelete()
+            R.id.cab_select_all -> selectAll()
             R.id.cab_open_with -> openRecordingWith()
         }
     }
@@ -153,19 +154,43 @@ class RecordingsAdapter(
         val recordingsToRemove = recordings.filter { selectedKeys.contains(it.id) } as ArrayList<Recording>
         val positions = getSelectedItemPositions()
 
-        if (isQPlus()) {
-            recordingsToRemove.forEach {
-                val uri = Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
-                val selection = "${Media._ID} = ?"
-                val selectionArgs = arrayOf(it.id.toString())
-                activity.contentResolver.delete(uri, selection, selectionArgs)
+        when {
+            isRPlus() -> {
+                val fileUris = recordingsToRemove.map { recording ->
+                    "${Media.EXTERNAL_CONTENT_URI}/${recording.id.toLong()}".toUri()
+                }
+
+                activity.deleteSDK30Uris(fileUris) { success ->
+                    if (success) {
+                        doDeleteAnimation(oldRecordingIndex, recordingsToRemove, positions)
+                    }
+                }
             }
-        } else {
-            recordingsToRemove.forEach {
-                activity.deleteFile(File(it.path).toFileDirItem(activity))
+            isQPlus() -> {
+                recordingsToRemove.forEach {
+                    val uri = Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+                    val selection = "${Media._ID} = ?"
+                    val selectionArgs = arrayOf(it.id.toString())
+                    val result = activity.contentResolver.delete(uri, selection, selectionArgs)
+
+                    if (result == 0) {
+                        recordingsToRemove.forEach {
+                            activity.deleteFile(File(it.path).toFileDirItem(activity))
+                        }
+                    }
+                }
+                doDeleteAnimation(oldRecordingIndex, recordingsToRemove, positions)
+            }
+            else -> {
+                recordingsToRemove.forEach {
+                    activity.deleteFile(File(it.path).toFileDirItem(activity))
+                }
+                doDeleteAnimation(oldRecordingIndex, recordingsToRemove, positions)
             }
         }
+    }
 
+    private fun doDeleteAnimation(oldRecordingIndex: Int, recordingsToRemove: ArrayList<Recording>, positions: ArrayList<Int>) {
         recordings.removeAll(recordingsToRemove)
         activity.runOnUiThread {
             if (recordings.isEmpty()) {
@@ -207,8 +232,62 @@ class RecordingsAdapter(
             recording_date.text = recording.timestamp.formatDate(context)
             recording_duration.text = recording.duration.getFormattedDuration()
             recording_size.text = recording.size.formatSize()
+
+            overflow_menu_icon.drawable.apply {
+                mutate()
+                setTint(activity.getProperTextColor())
+            }
+
+            overflow_menu_icon.setOnClickListener {
+                showPopupMenu(overflow_menu_anchor, recording)
+            }
         }
     }
 
     override fun onChange(position: Int) = recordings.getOrNull(position)?.title ?: ""
+
+    private fun showPopupMenu(view: View, recording: Recording) {
+        finishActMode()
+        val theme = activity.getPopupMenuTheme()
+        val contextTheme = ContextThemeWrapper(activity, theme)
+
+        PopupMenu(contextTheme, view, Gravity.END).apply {
+            inflate(getActionMenuId())
+            menu.findItem(R.id.cab_select_all).isVisible = false
+            setOnMenuItemClickListener { item ->
+                val recordingId = recording.id
+                when (item.itemId) {
+                    R.id.cab_rename -> {
+                        executeItemMenuOperation(recordingId) {
+                            renameRecording()
+                        }
+                    }
+                    R.id.cab_share -> {
+                        executeItemMenuOperation(recordingId) {
+                            shareRecordings()
+                        }
+                    }
+                    R.id.cab_open_with -> {
+                        executeItemMenuOperation(recordingId) {
+                            openRecordingWith()
+                        }
+                    }
+                    R.id.cab_delete -> {
+                        executeItemMenuOperation(recordingId) {
+                            deleteMediaStoreRecordings()
+                        }
+                    }
+                }
+
+                true
+            }
+            show()
+        }
+    }
+
+    private fun executeItemMenuOperation(callId: Int, callback: () -> Unit) {
+        selectedKeys.add(callId)
+        callback()
+        selectedKeys.remove(callId)
+    }
 }

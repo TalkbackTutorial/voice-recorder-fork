@@ -1,6 +1,26 @@
 Changelog
 ==========
 
+Version 5.8.2 *(2022-07-02)*
+----------------------------
+
+ * Fixed renaming and deleting on Android 10
+ * Added some translation and UX improvements
+
+Version 5.8.1 *(2022-06-24)*
+----------------------------
+
+ * Fix some renaming glitch on Android 10
+ * Added some translation and UI improvements
+
+Version 5.8.0 *(2022-06-23)*
+----------------------------
+
+ * Fixed file deletion and renaming on Android 11+
+ * Moved top tabs at the bottom
+ * Save proper mp3 files, if set so
+ * Added some stability, translation and UX improvements
+
 Version 5.7.1 *(2022-05-20)*
 ----------------------------
 

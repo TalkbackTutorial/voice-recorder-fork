@@ -4,9 +4,13 @@
     <string name="app_launcher_name">Gravador de voz</string>
     <string name="recording_saved_successfully">Gravação salva com sucesso</string>
     <string name="recording">Gravação</string>
-    <string name="no_recordings_found">Nenhuma gravação criada por\neste app foi encontrada</string>
-    <string name="no_recordings_in_folder_found">Nenhuma gravação foi\nencontrada na pasta selecionada</string>
+    <string name="no_recordings_found">Nenhuma gravação criada por
+\neste app foi encontrada</string>
+    <string name="no_recordings_in_folder_found">Nenhuma gravação foi
+\nencontrada na pasta selecionada</string>
     <string name="paused">Pausado</string>
+    <string name="recorder">Recorder</string>
+    <string name="player">Player</string>
     <!-- Confirmation dialog -->
     <!-- Are you sure you want to delete 5 recordings? -->
     <string name="delete_recordings_confirmation">Apagar %s\?</string>
@@ -22,33 +26,6 @@
     <!-- FAQ -->
     <string name="faq_1_title">Posso ocultar o ícone de notificação durante a gravação\?</string>
     <string name="faq_1_text">Bem, depende. Enquanto você usa seu dispositivo, não é mais possível ocultar totalmente as notificações de aplicativos como este. Se você verificar o item de configuração adequado, o aplicativo fará o seu melhor para escondê-lo. Você pode escondê-lo na tela de bloqueio desativando a exibição de notificações confidenciais nas configurações do dispositivo.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Gravador de Voz Simples - Grave áudios facilmente</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Uma maneira fácil de gravar qualquer discussão ou sons sem anúncios ou acesso à Internet</string>
-    <string name="app_long_description">
-        Remember what the other person said and what task you were given after a meeting.
-
-        The simple recorder is easily accessible with no fancy features, ads or unneeded permissions.
-
-        The current sound volume and a nice visualization is shown in a clean interface.
-
-        A helpful player lets you listen to your recordings quickly, rename, or delete them.
-
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
